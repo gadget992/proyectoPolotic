@@ -1,0 +1,35 @@
+{% extends 'app_jaguarete/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <div class="contenedor-blog-interno">
+    <h1>holaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
+        <form method="POST" class="contenedor-formulario formulario-editar-post" enctype="multipart/form-data"> 
+            {% csrf_token %}
+
+
+            <!-- PUEDO PONER INPUTS? -->
+            
+            <p>Título: {{ form.titulo }}</p>
+
+            <p>Texto: {{ form.descripcion }}</p>
+            <p>Imagen: {{ form.imagen }}</p>
+            <p>Precio: {{ form.precio }}</p>
+            <p>Precio: {{ form.categoria }}</p>
+            
+            
+            <input type="submit" value="Guardar">
+{% comment %}             
+            <a href="{% url 'recursos:lista_borrador_recursos' %}" class="boton boton-negro">Cancelar</a> {% endcomment %}
+            
+            {% comment %} {% if recurso %}
+            <a href="{% url 'recursos:borrar_recurso' pk=recurso.pk %}" class="boton boton-negro">Eliminar definitivamente</a>
+            {% endif %} {% endcomment %}
+        </form>
+        
+    </div>
+    {% endif %}
+
+{% endblock %}

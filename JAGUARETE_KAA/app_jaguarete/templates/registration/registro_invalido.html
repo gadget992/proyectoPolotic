@@ -1,0 +1,19 @@
+{% extends 'app_jaguarete/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2 style="color:white;">error en el registro, puso parametros parecidos en contraseña y username, intentalo nuevamente</h2>
+
+    <form action ="" method ="POST" >{% csrf_token %}
+        
+
+        <table style="color:white;">
+            {{ form.as_table }}
+        </table>
+
+        <input type="reset" value="Limpiar">
+        <input type="submit" value="Registrar">
+
+    </form>
+{% endblock %}

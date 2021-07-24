@@ -1,0 +1,31 @@
+{% extends 'app_jaguarete/base.html' %}
+{% load static %}
+
+{% block content %}
+<p>{{producto.categoria}}</p>
+<p>{{categoria.descripcion}}</p>
+<p>{{producto.id}}</p>
+<div class ="container">
+    <div class="row">
+    {% for producto in productos %}
+        <div class="col-md-3">
+            <div class="card" style="margin: 10px 5px;">
+                <img src="{{producto.imagen.url}}" alt="">
+                    <div class="card-body" style = "text-align:center;">
+                        <p class="card-title">{{producto.titulo}}</p>
+                        <p class="card-text">$ {{producto.precio}}&nbsp;</p>
+                    </div>
+
+                    <div class="card-footer text-center">
+{% comment %} aca lo redireccionamos a agregar, que es el nombre que le dimos a la url en urls de carrito|
+y despues le pasamos que le queremos agregar {% endcomment %}
+                         {% comment %} <a href="{% url 'agregar' producto.id %}" class="btn btn-success"> Agregar al carrito </a>   {% endcomment %}
+                    </div>
+            </div>        
+        </div>
+{% endfor %}
+    </div>
+    
+</div> 
+
+{% endblock %}

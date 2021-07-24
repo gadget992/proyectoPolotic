@@ -1,0 +1,16 @@
+{% extends 'app_jaguarete/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h2 style="color:white;">AUTENTICACION</h2>
+
+    <form action="" method="POST"> {% csrf_token %}
+        
+        <table style="color:white;">
+        {{form.as_table}}
+        </table>
+        <input type="submit" value="login">
+    </form>
+
+{% endblock %}

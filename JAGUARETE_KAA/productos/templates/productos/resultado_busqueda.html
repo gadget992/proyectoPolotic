@@ -1,0 +1,31 @@
+{% extends 'app_jaguarete/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <p style = "color:white;">
+        estas buscando <strong> {{query}} </strong>
+    </p>
+
+    {% if producto %}
+
+        <p style = "color:white;">
+        {% comment %} alt 124 para linea vertical {% endcomment %}
+            articulos encontrados {{producto|length}} articulos
+        </p>
+
+        <ul>
+            {% for prod in producto %}
+                <li style = "color:white;">
+                    {{prod.nombre}} &nbsp; {{prod.descripcion}} &nbsp; {{prod.precio}}
+                </li>
+            {% endfor %}
+
+    {% else %}
+        <p>
+        no esta el articulo buscado
+        </p>
+
+        </ul>
+    {% endif %}
+{% endblock %}
