@@ -5,6 +5,7 @@ class Carrito:
         self.request = request
         self.session = request.session
         #aca almacenamos la variable carrito, que inicia session
+        
         carrito = self.session.get("carrito")
         #aca si el usuario no tiene carrito, crea una session. El carrito es un diccionario
         if not carrito:

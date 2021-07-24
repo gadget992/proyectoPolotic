@@ -19,7 +19,11 @@
 </head>
 
 <body>
-{% if user.is_authenticated %}
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+    {% if user.is_authenticated %}
   <div>
     <h2 style="color:white;">
 
@@ -30,12 +34,9 @@
     </h2>
   </div>
 {% endif %}
-
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
       <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            
+              {% if not user.is_authenticated %}
                   <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="{% url 'registro' %}">Registro</a>
                   </li>
@@ -43,11 +44,13 @@
                   <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="{% url 'login' %}">Login</a>
                   </li>
-                 
+                 {% endif %}
+
                  {% if user.is_authenticated %}
+                  {% if not user.is_superuser %}
                   <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="{% url 'carrito' %}">Carrito</a>
-    
+                   {% endif %}
                   {% endif %}
                     
          
